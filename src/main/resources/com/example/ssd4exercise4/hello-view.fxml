@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="650.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ssd4exercise4.HelloController">
+   <children>
+      <TabPane layoutX="25.0" layoutY="40.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab onSelectionChanged="#PageChange" text="Date&amp;Time">
+               <content>
+                  <VBox prefHeight="200.0" prefWidth="100.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <VBox prefHeight="320.0" prefWidth="300.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="100.0" text="Date">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <AnchorPane prefHeight="320.0" prefWidth="300.0" style="-fx-border-width: 2; -fx-border-color: black;">
+                                       <children>
+                                          <ChoiceBox fx:id="Month" layoutX="14.0" layoutY="23.0" prefHeight="23.0" prefWidth="112.0" />
+                                          <Spinner fx:id="Year" editable="true" layoutX="170.0" layoutY="23.0" onKeyReleased="#YearChanged2" onMousePressed="#YearChanged" prefHeight="23.0" prefWidth="103.0" />
+                                          <TableView fx:id="Calendar" layoutX="2.0" layoutY="50.0" prefHeight="200.0" prefWidth="300.0">
+                                             <columns>
+                                                <TableColumn prefWidth="42.0" text="SUN" />
+                                                <TableColumn prefWidth="43.0" text="MON" />
+                                                <TableColumn prefWidth="42.0" text="TUE" />
+                                                <TableColumn prefWidth="43.0" text="WED" />
+                                                <TableColumn prefWidth="42.0" text="THU" />
+                                                <TableColumn prefWidth="43.0" text="FRI" />
+                                                <TableColumn prefWidth="42.0" text="SAT" />
+                                             </columns>
+                                          </TableView>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                              <Separator orientation="VERTICAL" prefHeight="200.0" />
+                              <VBox prefHeight="320.0" prefWidth="300.0">
+                                 <children>
+                                    <Label prefHeight="40.0" prefWidth="100.0" text="Time">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <AnchorPane prefHeight="320.0" prefWidth="300.0" style="-fx-border-width: 2; -fx-border-color: black;">
+                                       <children>
+                                          <Spinner fx:id="Hour" layoutX="14.0" layoutY="149.0" onMouseReleased="#HourChange" prefHeight="23.0" prefWidth="79.0" />
+                                          <Spinner fx:id="Minute" layoutX="93.0" layoutY="149.0" onMouseReleased="#MinuteChange" prefHeight="23.0" prefWidth="79.0" />
+                                          <Spinner fx:id="Second" layoutX="171.0" layoutY="149.0" onMouseReleased="#SecondChange" prefHeight="23.0" prefWidth="79.0" />
+                                          <Group layoutX="202.0" layoutY="184.0">
+                                             <children>
+                                                <RadioButton fx:id="PM" mnemonicParsing="false" text="PM" />
+                                                <RadioButton fx:id="AM" layoutY="20.0" mnemonicParsing="false" text="AM" />
+                                             </children>
+                                          </Group>
+                                       </children>
+                                    </AnchorPane>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <Label fx:id="CurrentZone" prefHeight="43.0" prefWidth="635.0" text="Current Time Zone :">
+                           <font>
+                              <Font size="16.0" />
+                           </font></Label>
+                     </children>
+                  </VBox>
+               </content>
+            </Tab>
+            <Tab text="TimeZone">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <ChoiceBox fx:id="TimeZone" layoutX="104.0" layoutY="14.0" prefHeight="23.0" prefWidth="392.0" />
+                        <CheckBox fx:id="AutoAdjust" layoutX="133.0" layoutY="290.0" mnemonicParsing="false" text="Automatically adjust clock for daylight saying changes" />
+                        <ImageView fx:id="ZoneView" fitHeight="230.0" fitWidth="400.0" layoutX="100.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+                        <Group fx:id="Group_SHAPE" layoutX="100.0" layoutY="270.0" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Label prefHeight="40.0" prefWidth="200.0" text="Ponzi   Exampe">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Label>
+      <Button fx:id="OK" layoutX="350.0" layoutY="400.0" mnemonicParsing="false" onAction="#OK" prefHeight="40.0" prefWidth="70.0" text="OK">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="Cancel" layoutX="450.0" layoutY="400.0" mnemonicParsing="false" onAction="#Cancel" prefHeight="40.0" prefWidth="70.0" text="Cancel">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button fx:id="Apply" layoutX="550.0" layoutY="400.0" mnemonicParsing="false" onAction="#Apply" prefHeight="40.0" prefWidth="70.0" text="Apply">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
